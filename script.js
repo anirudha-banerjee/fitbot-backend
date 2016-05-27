@@ -5,8 +5,9 @@ const Script = require('smooch-bot').Script;
 module.exports = new Script({
 
     start: {
+       prompt: (bot) => bot.say('Hi'),
        receive: (bot) => {
-            return bot.say('Hi welcome to fitblink!')
+            return bot.say('Welcome to fitblink')
                 .then(() => bot.say('I am fitbot, I will assist you in finding the right solution for you based on your fitness or health needs'))
                 .then(() => bot.say('Let\'s get to know each other better'))
                 .then(() => 'askName');
@@ -76,10 +77,10 @@ module.exports = new Script({
                     return bot.say('You’re already fit, I wonder if you need me, Ah! But I can show you tricks which can help maintain this already good health')
                            .then(() => bot.say('Before I do that, let me ask if you have any specific issue like Migraine, Back pain,or any injury that I should know about?'))
                            .then(() => 'issues');
-                  else 
+                  else
                     return bot.say(`Well, we got your back, Looks like we have just the right set of experts and activities which can help you get your BMI back in normal zone`).
                       then(() => bot.say('It’s time to find you a personal trainer, this number will be tamed, that’s our commitment.'))
-                        .then(() => 
+                        .then(() =>
                             bot.say('Would you like to continue your journey using Gym workouts and diet? Just Diet? Or how about some Yoga?'))
                         .then(() => 'choice');
           });
@@ -98,7 +99,7 @@ module.exports = new Script({
                                               then(() => bot.say('We have a pedometer integrated for you, which can show you number of steps you’ve walked or run, distance, time when you were active and calories you’ve burnt doing those activity!!'))
                                               .then(() => 'pedometer');
                                     }
-            
+
    },
 
    choice: {
